@@ -31,6 +31,9 @@
                         <li>
                             <a class="nav-link" href="/threads?popular=1">Popular All Time</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="/threads?unanswered=1">Unanswered Threads</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -64,6 +67,7 @@
                         </li>
                     @endif
                 @else
+                    <user-notifications></user-notifications>
                     <li class="nav-link">
                         <a href="{{route('profile', Auth::user())}}">My profile</a>
                     </li>

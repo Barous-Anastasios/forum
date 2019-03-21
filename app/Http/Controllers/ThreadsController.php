@@ -63,7 +63,8 @@ class ThreadsController extends Controller
             'body' => $request->body
         ]);
 
-        return redirect($thread->path());
+        return redirect($thread->path())
+                ->with('flash', 'Your thread has been published');
     }
 
     /**
@@ -74,10 +75,7 @@ class ThreadsController extends Controller
      */
     public function show($channel, Thread $thread)
     {
-        return view('threads.show', [
-            'thread' => $thread,
-            'replies' => $thread->replies()->paginate(2)
-        ]);
+        return view('threads.show', compact('thread'));
     }
 
     /**
